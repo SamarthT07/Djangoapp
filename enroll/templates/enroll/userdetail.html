@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dashboard</title>
+</head>
+<body>
+<form action="" method="post">
+    {% for i in form %}
+    {{i.label_tag}}{{i}}{{i.errors|striptags}}<br><br>
+    {% endfor %}
+    <a href="{% url 'profile' %}">profile</a><br>
+    <a href="{% url 'cpass' %}">change password</a>
+</form>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>profile</title>
+</head>
+<body>
+;alskdjf;alskdjf;alkjf;ldkf
+    <form action="" method="post">
+        {% csrf_token %}
+
+         <h1>{{name}}fgdhfgdhhdh</h1><br>
+        {% if user != None %}
+        <h1>list of users</h1>
+        {% for i in user %}
+         <a href="{% url 'userdetail' i.id %}">{{i.username}}</a> <br>
+        {% endfor %}
+        {% endif %}
+        {% for i in form %}
+        {{i.label_tag}}{{i}} {{i.errors|striptags}}<br> <br>
+        {% endfor %}
+            {% if form.non_field_errors %}
+            {% for i in form.non_field_errors %}
+            {{i}}
+            {% endfor %}
+            {% endif %}
+        {% if messages %}
+{% for i in messages %}
+{{i}}
+{% endfor %}
+{% endif %}
+         <input type="submit" value="submit">
+    </form>
+<a href="{% url 'logout' %}">logout</a><br>
+<a href="{% url 'cpass' %}">change password by using old password</a><br>
+<a href="{% url 'cpass1' %}">change password without using old password</a>
+</body>
+</html>
+ 
